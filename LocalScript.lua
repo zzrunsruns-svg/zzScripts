@@ -54,7 +54,7 @@ local function BuildBase()
 	local HubName = Instance.new("TextLabel")
 	HubName.Name = "HubName"
 	HubName.Parent = TopBar
-	HubName.BackgroundTransparency = 0.7
+	HubName.BackgroundTransparency = 1
 	HubName.Position = UDim2.new(0.013, 0, 0, 0)
 	HubName.Size = UDim2.new(0.7, 0, 1, 0)
 	HubName.Font = Enum.Font.SourceSans
@@ -143,7 +143,7 @@ local function BuildBase()
 	TextBoxElementTemplate.PlaceholderColor3 = Color3.fromRGB(236, 236, 236)
 	TextBoxElementTemplate.PlaceholderText = "Enter text..."
 	TextBoxElementTemplate.Text = ""
-	TextBoxElementTemplate.TextColor3 = Color3.fromRGB(0, 0, 0)
+	TextBoxElementTemplate.TextColor3 = Color3.fromRGB(236, 236, 236)
 	TextBoxElementTemplate.TextSize = 20
 	TextBoxElementTemplate.ClearTextOnFocus = false
 	TextBoxElementTemplate.Visible = false -- template
@@ -468,6 +468,7 @@ function WindowMT:Destroy()
 end
 
 return setmetatable({}, Library)
+
 
 
 
