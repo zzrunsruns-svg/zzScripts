@@ -39,6 +39,7 @@ local function BuildBase()
 	Window.BorderSizePixel = 0
 	Window.Position = UDim2.new(0.5, 0, 0.5, 0)
 	Window.Size = UDim2.new(0.450, 0, 0.700, 0)
+	Window.Draggable = true
 
 	-- Top bar
 	local TopBar = Instance.new("Frame")
@@ -103,23 +104,6 @@ local function BuildBase()
 
 	-- Add this inside the BuildBase function after ToggleElementTemplate is created (same parent: PageTemplate)
 
-	local TextBoxElementTemplate = Instance.new("TextBox")
-	TextBoxElementTemplate.Name = "TextBoxElementTemplate"
-	TextBoxElementTemplate.Parent = PageTemplate
-	TextBoxElementTemplate.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
-	TextBoxElementTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	TextBoxElementTemplate.BorderSizePixel = 0
-	TextBoxElementTemplate.Size = UDim2.new(0.85, 0, 0, 36)
-	TextBoxElementTemplate.Font = Enum.Font.SourceSans
-	TextBoxElementTemplate.PlaceholderColor3 = Color3.fromRGB(236, 236, 236)
-	TextBoxElementTemplate.PlaceholderText = "Enter text..."
-	TextBoxElementTemplate.Text = ""
-	TextBoxElementTemplate.TextColor3 = Color3.fromRGB(0, 0, 0)
-	TextBoxElementTemplate.TextSize = 20
-	TextBoxElementTemplate.ClearTextOnFocus = false
-	TextBoxElementTemplate.Visible = false -- template
-
-
 	-- Pages container (we’ll create one ScrollingFrame per tab here)
 	local PagesHolder = Instance.new("Frame")
 	PagesHolder.Name = "PagesHolder"
@@ -146,6 +130,25 @@ local function BuildBase()
 	UIP_Page.Parent = PageTemplate
 	UIP_Page.PaddingLeft = UDim.new(0.06, 0)
 	UIP_Page.PaddingTop = UDim.new(0.005, 0)
+
+	
+	local TextBoxElementTemplate = Instance.new("TextBox")
+	TextBoxElementTemplate.Name = "TextBoxElementTemplate"
+	TextBoxElementTemplate.Parent = PageTemplate
+	TextBoxElementTemplate.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
+	TextBoxElementTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TextBoxElementTemplate.BorderSizePixel = 0
+	TextBoxElementTemplate.Size = UDim2.new(0.85, 0, 0, 36)
+	TextBoxElementTemplate.Font = Enum.Font.SourceSans
+	TextBoxElementTemplate.PlaceholderColor3 = Color3.fromRGB(236, 236, 236)
+	TextBoxElementTemplate.PlaceholderText = "Enter text..."
+	TextBoxElementTemplate.Text = ""
+	TextBoxElementTemplate.TextColor3 = Color3.fromRGB(0, 0, 0)
+	TextBoxElementTemplate.TextSize = 20
+	TextBoxElementTemplate.ClearTextOnFocus = false
+	TextBoxElementTemplate.Visible = false -- template
+
+
 
 	-- Button element template (smaller height)
 	local ButtonElementTemplate = Instance.new("TextButton")
@@ -465,6 +468,7 @@ function WindowMT:Destroy()
 end
 
 return setmetatable({}, Library)
+
 
 
 
