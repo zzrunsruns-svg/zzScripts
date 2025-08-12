@@ -101,6 +101,25 @@ local function BuildBase()
 	sbCorner.Parent = SideBarButtonTemplate
 	SideBarButtonTemplate.Visible = false -- keep as template
 
+	-- Add this inside the BuildBase function after ToggleElementTemplate is created (same parent: PageTemplate)
+
+	local TextBoxElementTemplate = Instance.new("TextBox")
+	TextBoxElementTemplate.Name = "TextBoxElementTemplate"
+	TextBoxElementTemplate.Parent = PageTemplate
+	TextBoxElementTemplate.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
+	TextBoxElementTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TextBoxElementTemplate.BorderSizePixel = 0
+	TextBoxElementTemplate.Size = UDim2.new(0.85, 0, 0, 36)
+	TextBoxElementTemplate.Font = Enum.Font.SourceSans
+	TextBoxElementTemplate.PlaceholderColor3 = Color3.fromRGB(236, 236, 236)
+	TextBoxElementTemplate.PlaceholderText = "Enter text..."
+	TextBoxElementTemplate.Text = ""
+	TextBoxElementTemplate.TextColor3 = Color3.fromRGB(0, 0, 0)
+	TextBoxElementTemplate.TextSize = 20
+	TextBoxElementTemplate.ClearTextOnFocus = false
+	TextBoxElementTemplate.Visible = false -- template
+
+
 	-- Pages container (we’ll create one ScrollingFrame per tab here)
 	local PagesHolder = Instance.new("Frame")
 	PagesHolder.Name = "PagesHolder"
@@ -267,7 +286,7 @@ local COLOR = {
 	SidebarActive = Color3.fromRGB(110,110,110),
 	ButtonIdle = Color3.fromRGB(72,72,72),
 	ToggleOff = Color3.fromRGB(117,117,117),
-	ToggleOn = Color3.fromRGB(51, 170, 110)
+	ToggleOn = Color3.fromRGB(15, 173, 221)
 }
 
 -- Window/Tab objects
@@ -379,6 +398,32 @@ function TabMT:AddButton(text, callback)
 	return btn
 end
 
+
+function TabMT:AddTextBox(placeholderText, callback, defaultText)
+	local box = self.Window._PageTemplate:FindFirstChild("TextBoxElementTemplate"):Clone()
+	box.Visible = true
+	box.Parent = self.Page
+	box.LayoutOrder = self:_nextOrder()
+	box.PlaceholderText = placeholderText or "Enter text..."
+	box.Text = defaultText or ""
+	
+	local function onFocusLost()
+		if typeof(callback) == "function" then
+			task.spawn(callback, box.Text)
+		end
+	end
+	
+	box.FocusLost:Connect(onFocusLost)
+	
+	-- expose simple API
+	local api = {}
+	function api:Set(text) box.Text = text end
+	function api:Get() return box.Text end
+	function api:OnChanged(fn) callback = fn end
+	
+	return api, box
+end
+
 function TabMT:AddToggle(title, description, callback, default)
 	local frame = self.Window._ToggleTemplate:Clone()
 	frame.Visible = true
@@ -420,5 +465,6 @@ function WindowMT:Destroy()
 end
 
 return setmetatable({}, Library)
+
 
 
