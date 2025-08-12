@@ -38,7 +38,7 @@ local function BuildBase()
 	Window.BackgroundColor3 = Color3.fromRGB(179, 179, 179)
 	Window.BorderSizePixel = 0
 	Window.Position = UDim2.new(0.5, 0, 0.5, 0)
-	Window.Size = UDim2.new(0.370, 0, 0.500, 0)
+	Window.Size = UDim2.new(0.450, 0, 0.700, 0)
 
 	-- Top bar
 	local TopBar = Instance.new("Frame")
@@ -420,4 +420,5 @@ function WindowMT:Destroy()
 end
 
 return setmetatable({}, Library)
+
 
