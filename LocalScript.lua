@@ -54,7 +54,7 @@ local function BuildBase()
 	local HubName = Instance.new("TextLabel")
 	HubName.Name = "HubName"
 	HubName.Parent = TopBar
-	HubName.BackgroundTransparency = 1
+	HubName.BackgroundTransparency = 0.7
 	HubName.Position = UDim2.new(0.013, 0, 0, 0)
 	HubName.Size = UDim2.new(0.7, 0, 1, 0)
 	HubName.Font = Enum.Font.SourceSans
@@ -468,6 +468,7 @@ function WindowMT:Destroy()
 end
 
 return setmetatable({}, Library)
+
 
 
 
