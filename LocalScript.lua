@@ -38,8 +38,7 @@ local function BuildBase()
 	Window.BackgroundColor3 = Color3.fromRGB(179, 179, 179)
 	Window.BorderSizePixel = 0
 	Window.Position = UDim2.new(0.5, 0, 0.5, 0)
-	-- Changed size to fully scale (approx same relative size as before)
-	Window.Size = UDim2.new(0.4, 0, 0.6, 0)
+	Window.Size = UDim2.new(0.315, 0, 0.453, 0)
 
 	-- Top bar
 	local TopBar = Instance.new("Frame")
@@ -48,8 +47,8 @@ local function BuildBase()
 	TopBar.AnchorPoint = Vector2.new(0.5, 0.5)
 	TopBar.BackgroundColor3 = Color3.fromRGB(61,61,61)
 	TopBar.BorderSizePixel = 0
-	TopBar.Position = UDim2.new(0.5, 0, 0.04, 0)
-	TopBar.Size = UDim2.new(1, 0, 0.08, 0)
+	TopBar.Position = UDim2.new(0.499, 0, 0.04, 0)
+	TopBar.Size = UDim2.new(1.001, 0, 0.08, 0)
 
 	local HubName = Instance.new("TextLabel")
 	HubName.Name = "HubName"
@@ -60,7 +59,7 @@ local function BuildBase()
 	HubName.Font = Enum.Font.SourceSans
 	HubName.Text = "Game Name Hub"
 	HubName.TextColor3 = Color3.fromRGB(223,223,223)
-	HubName.TextScaled = true
+	HubName.TextSize = 22
 	HubName.TextXAlignment = Enum.TextXAlignment.Left
 
 	-- Sidebar container
@@ -86,18 +85,17 @@ local function BuildBase()
 	UIP_Side.PaddingLeft = UDim.new(0.105, 0)
 	UIP_Side.PaddingTop = UDim.new(0.005, 0)
 
-	-- Sidebar button template
+	-- Sidebar button template (smaller height)
 	local SideBarButtonTemplate = Instance.new("TextButton")
 	SideBarButtonTemplate.Name = "SideBarButtonTemplate"
 	SideBarButtonTemplate.Parent = SideBarElements
 	SideBarButtonTemplate.BackgroundColor3 = Color3.fromRGB(85,85,85)
 	SideBarButtonTemplate.BorderSizePixel = 0
-	SideBarButtonTemplate.Size = UDim2.new(0.95, 0, 0, 38) -- scale width + fixed height
+	SideBarButtonTemplate.Size = UDim2.new(0.85, 0, 0, 28)
 	SideBarButtonTemplate.Font = Enum.Font.SourceSans
 	SideBarButtonTemplate.Text = "Template"
 	SideBarButtonTemplate.TextColor3 = Color3.fromRGB(218,218,218)
 	SideBarButtonTemplate.TextSize = 17
-	SideBarButtonTemplate.TextScaled = true
 	local sbCorner = Instance.new("UICorner")
 	sbCorner.CornerRadius = UDim.new(0.25, 0)
 	sbCorner.Parent = SideBarButtonTemplate
@@ -108,8 +106,8 @@ local function BuildBase()
 	PagesHolder.Name = "PagesHolder"
 	PagesHolder.Parent = Window
 	PagesHolder.BackgroundTransparency = 1
-	PagesHolder.Position = UDim2.new(0.315, 0, 0.079, 0)
-	PagesHolder.Size = UDim2.new(0.685, 0, 0.921, 0)
+	PagesHolder.Position = UDim2.new(0.313, 0, 0.079, 0)
+	PagesHolder.Size = UDim2.new(0.687, 0, 0.921, 0)
 
 	-- Page template (ScrollingFrame with layout/padding)
 	local PageTemplate = Instance.new("ScrollingFrame")
@@ -130,30 +128,29 @@ local function BuildBase()
 	UIP_Page.PaddingLeft = UDim.new(0.06, 0)
 	UIP_Page.PaddingTop = UDim.new(0.005, 0)
 
-	-- Button element template
+	-- Button element template (smaller height)
 	local ButtonElementTemplate = Instance.new("TextButton")
 	ButtonElementTemplate.Name = "ButtonElementTemplate"
 	ButtonElementTemplate.Parent = PageTemplate
 	ButtonElementTemplate.BackgroundColor3 = Color3.fromRGB(72,72,72)
 	ButtonElementTemplate.BorderSizePixel = 0
-	ButtonElementTemplate.Size = UDim2.new(0.9, 0, 0, 38) -- width scaled, fixed height
+	ButtonElementTemplate.Size = UDim2.new(0.85, 0, 0, 28)
 	ButtonElementTemplate.Font = Enum.Font.SourceSans
 	ButtonElementTemplate.Text = "Button"
 	ButtonElementTemplate.TextColor3 = Color3.fromRGB(218,218,218)
 	ButtonElementTemplate.TextSize = 17
-	ButtonElementTemplate.TextScaled = true
 	local bCorner = Instance.new("UICorner")
 	bCorner.CornerRadius = UDim.new(0.25, 0)
 	bCorner.Parent = ButtonElementTemplate
 	ButtonElementTemplate.Visible = false -- template
 
-	-- Toggle element template
+	-- Toggle element template (smaller height)
 	local ToggleElementTemplate = Instance.new("Frame")
 	ToggleElementTemplate.Name = "ToggleElementTemplate"
 	ToggleElementTemplate.Parent = PageTemplate
 	ToggleElementTemplate.BackgroundColor3 = Color3.fromRGB(72,72,72)
 	ToggleElementTemplate.BorderSizePixel = 0
-	ToggleElementTemplate.Size = UDim2.new(0.9, 0, 0, 75) -- width scaled, fixed height
+	ToggleElementTemplate.Size = UDim2.new(0.85, 0, 0, 55)
 	local tCorner = Instance.new("UICorner")
 	tCorner.CornerRadius = UDim.new(0.1, 0)
 	tCorner.Parent = ToggleElementTemplate
@@ -167,7 +164,7 @@ local function BuildBase()
 	ToggleTitle.Font = Enum.Font.SourceSansBold
 	ToggleTitle.Text = "Toggle"
 	ToggleTitle.TextColor3 = Color3.fromRGB(223,223,223)
-	ToggleTitle.TextScaled = true
+	ToggleTitle.TextSize = 15
 	ToggleTitle.TextXAlignment = Enum.TextXAlignment.Left
 	ToggleTitle.TextWrapped = true
 
@@ -176,11 +173,11 @@ local function BuildBase()
 	ToggleDescription.Parent = ToggleElementTemplate
 	ToggleDescription.BackgroundTransparency = 1
 	ToggleDescription.Position = UDim2.new(0.033, 0, 0.293, 0)
-	ToggleDescription.Size = UDim2.new(0.8, 0, 0.7, 0)
+	ToggleDescription.Size = UDim2.new(0.80, 0, 0.70, 0)
 	ToggleDescription.Font = Enum.Font.SourceSans
 	ToggleDescription.Text = "Description"
 	ToggleDescription.TextColor3 = Color3.fromRGB(223,223,223)
-	ToggleDescription.TextScaled = true
+	ToggleDescription.TextSize = 15
 	ToggleDescription.TextWrapped = true
 	ToggleDescription.TextXAlignment = Enum.TextXAlignment.Left
 	ToggleDescription.TextYAlignment = Enum.TextYAlignment.Top
@@ -190,12 +187,11 @@ local function BuildBase()
 	ToggleButton.Parent = ToggleElementTemplate
 	ToggleButton.BackgroundColor3 = Color3.fromRGB(117,117,117)
 	ToggleButton.BorderSizePixel = 0
-	ToggleButton.Position = UDim2.new(0.86, 0, 0.289, 0)
-	ToggleButton.Size = UDim2.new(0, 35, 0, 31) -- small fixed size OK for toggle circle
+	ToggleButton.Position = UDim2.new(0.861, 0, 0.289, 0)
+	ToggleButton.Size = UDim2.new(0, 35, 0, 31)
 	ToggleButton.Text = " "
 	ToggleButton.TextColor3 = Color3.fromRGB(218,218,218)
 	ToggleButton.TextSize = 17
-	ToggleButton.TextScaled = true
 	local tbCorner = Instance.new("UICorner")
 	tbCorner.CornerRadius = UDim.new(0.5, 0)
 	tbCorner.Parent = ToggleButton
@@ -207,8 +203,8 @@ local function BuildBase()
 	MobileToggle.Parent = ZzUILibrary
 	MobileToggle.BackgroundColor3 = Color3.fromRGB(66,66,66)
 	MobileToggle.BorderSizePixel = 0
-	MobileToggle.Position = UDim2.new(0.925, 0, 0.193, 0)
-	MobileToggle.Size = UDim2.new(0.06, 0, 0.0355, 0)
+	MobileToggle.Position = UDim2.new(0.9247, 0, 0.1931, 0)
+	MobileToggle.Size = UDim2.new(0.0601, 0, 0.0355, 0)
 	MobileToggle.Font = Enum.Font.SourceSans
 	MobileToggle.Text = "Toggle UI"
 	MobileToggle.TextColor3 = Color3.fromRGB(255,99,51)
@@ -271,7 +267,7 @@ local COLOR = {
 	SidebarActive = Color3.fromRGB(110,110,110),
 	ButtonIdle = Color3.fromRGB(72,72,72),
 	ToggleOff = Color3.fromRGB(117,117,117),
-	ToggleOn = Color3.fromRGB(15, 173, 221)
+	ToggleOn = Color3.fromRGB(51, 170, 110)
 }
 
 -- Window/Tab objects
