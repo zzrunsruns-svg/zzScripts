@@ -125,7 +125,7 @@ local function BuildBase()
 	local UIL_Page = Instance.new("UIListLayout")
 	UIL_Page.Parent = PageTemplate
 	UIL_Page.SortOrder = Enum.SortOrder.LayoutOrder
-	UIL_Page.Padding = UDim.new(0.02, 0)
+	UIL_Page.Padding = UDim.new(0.01, 0)
 	local UIP_Page = Instance.new("UIPadding")
 	UIP_Page.Parent = PageTemplate
 	UIP_Page.PaddingLeft = UDim.new(0.06, 0)
@@ -468,6 +468,7 @@ function WindowMT:Destroy()
 end
 
 return setmetatable({}, Library)
+
 
 
 
