@@ -226,7 +226,7 @@ local function BuildBase()
 	MobileToggle.BackgroundColor3 = Color3.fromRGB(66,66,66)
 	MobileToggle.BorderSizePixel = 0
 	MobileToggle.Position = UDim2.new(0.9247, 0, 0.1931, 0)
-	MobileToggle.Size = UDim2.new(0.0601, 0, 0.0355, 0)
+	MobileToggle.Size = UDim2.new(0.0601, 0, 0.0400, 0)
 	MobileToggle.Font = Enum.Font.SourceSans
 	MobileToggle.Text = "Toggle UI"
 	MobileToggle.TextColor3 = Color3.fromRGB(255,99,51)
@@ -468,6 +468,7 @@ function WindowMT:Destroy()
 end
 
 return setmetatable({}, Library)
+
 
 
 
