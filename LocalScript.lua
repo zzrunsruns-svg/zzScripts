@@ -231,6 +231,7 @@ local function BuildBase()
 	MobileToggle.Text = "Toggle UI"
 	MobileToggle.TextColor3 = Color3.fromRGB(255,99,51)
 	MobileToggle.TextScaled = true
+	MobileToggle.Draggable = true
 	local mtCorner = Instance.new("UICorner")
 	mtCorner.CornerRadius = UDim.new(0.25, 0)
 	mtCorner.Parent = MobileToggle
@@ -468,6 +469,7 @@ function WindowMT:Destroy()
 end
 
 return setmetatable({}, Library)
+
 
 
 
