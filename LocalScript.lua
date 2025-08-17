@@ -79,7 +79,7 @@ local function BuildBase()
 	local UIL_Side = Instance.new("UIListLayout")
 	UIL_Side.Parent = SideBarElements
 	UIL_Side.SortOrder = Enum.SortOrder.LayoutOrder
-	UIL_Side.Padding = UDim.new(0.004, 0)
+	UIL_Side.Padding = UDim.new(0.006, 0)
 
 	local UIP_Side = Instance.new("UIPadding")
 	UIP_Side.Parent = SideBarElements
@@ -469,6 +469,7 @@ function WindowMT:Destroy()
 end
 
 return setmetatable({}, Library)
+
 
 
 
