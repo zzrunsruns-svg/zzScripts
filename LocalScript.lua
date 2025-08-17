@@ -38,7 +38,7 @@ local function BuildBase()
 	Window.BackgroundColor3 = Color3.fromRGB(179, 179, 179)
 	Window.BorderSizePixel = 0
 	Window.Position = UDim2.new(0.5, 0, 0.5, 0)
-	Window.Size = UDim2.new(0.540, 0, 0.770, 0)
+	Window.Size = UDim2.new(0.600, 0, 0.820, 0)
 	Window.Draggable = true
 
 	-- Top bar
@@ -469,6 +469,7 @@ function WindowMT:Destroy()
 end
 
 return setmetatable({}, Library)
+
 
 
 
